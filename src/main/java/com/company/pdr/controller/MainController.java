@@ -54,9 +54,9 @@ public class MainController {
     public String getTestsTask(@PathVariable("taskId") Integer taskId, Map<String, Object> model) {
         Task task = taskRepo.findByTaskId(taskId).orElse(null);
 
-        Iterable<Test> tests = testRepo.findAll();
-        model.put("tests", tests);
-        model.put("test", test);
+        Iterable<Task> tasks = task.getTest().getTasks();
+        model.put("tasks", tasks);
+        model.put("task", task);
 
         return "main";
     }
