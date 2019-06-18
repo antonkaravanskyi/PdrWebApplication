@@ -50,13 +50,25 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/tasks/{taskId}")
-    public String getTestsTask(@PathVariable("taskId") Integer taskId, Map<String, Object> model) {
-        Task task = taskRepo.findByTaskId(taskId).orElse(null);
+    /* in
+     *[
+     *  123 => 5,
+     *  124 => 2,
+     * ]
+    */
+    /* out
+     * [
+     *  123 => ["user" => 5, "right" => 2],
+     *  124 => ["user" => 2, "right" => 3],
+     * ]
+     */
+    @PostMapping("/tests/{testId}")
+    public String checkTests(@PathVariable("testId") Integer testId, Map<String, Object> model) {
+        Test test = testRepo.findByTestId(testId).orElse(null);
 
-        Iterable<Task> tasks = task.getTest().getTasks();
-        model.put("tasks", tasks);
-        model.put("task", task);
+        Iterable<Test> tests = testRepo.findAll();
+        model.put("tests", tests);
+        model.put("test", test);
 
         return "main";
     }
