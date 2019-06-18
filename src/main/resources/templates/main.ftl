@@ -4,7 +4,7 @@
     <form onsubmit="window.location = 'http://localhost:8080/tests/' + testId.value; return false;">
         <div class="form-group">
             <label for="exampleFormControlSelect1">Варіанти тестів</label>
-            <div class="form-group">
+            <div class="form-group ">
                 <select class="form-control" id="testId">
                     <option selected>Білет №...</option>
                     <#list tests as test>
@@ -15,9 +15,7 @@
                 </select>
             </div>
         </div>
-        <button class="btn btn-dark" type="submit">
-            Розпочати тест
-        </button>
+        <button class="btn btn-dark" type="submit">Розпочати тест</button>
     </form>
 
     <#if test?has_content>

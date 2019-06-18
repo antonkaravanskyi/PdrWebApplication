@@ -4,7 +4,6 @@ import com.company.pdr.domain.Role;
 import com.company.pdr.domain.User;
 import com.company.pdr.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,7 +26,7 @@ public class RegistrationController {
     private AuthenticationManager authManager;
 
     @GetMapping("/registration")
-    public String reg() {
+    public String registration() {
         return "registr";
     }
 
@@ -36,8 +35,8 @@ public class RegistrationController {
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
         if (userFromDb != null) {
-            model.put("message", "User exists!");
-            return "registration";
+            model.put("message", "Користувач з таким ім'ям вже існує.");
+            return "registr";
         }
 
         user.setActive(true);

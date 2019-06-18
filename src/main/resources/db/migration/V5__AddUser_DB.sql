@@ -1,7 +1,8 @@
 insert into usr(id,username,password,active)
 values
-(1,'антон','1458563',true);
+(0,'антон','1458563',true);
 
 insert into user_role (user_id, roles)
 values
-(1, 'USER');
+(0, 'USER'),
+(0, 'ADMIN');

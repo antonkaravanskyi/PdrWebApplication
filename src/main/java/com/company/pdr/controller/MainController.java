@@ -1,6 +1,8 @@
 package com.company.pdr.controller;
 
+import com.company.pdr.domain.Task;
 import com.company.pdr.domain.Test;
+import com.company.pdr.repos.TaskRepo;
 import com.company.pdr.repos.TestRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +18,9 @@ public class MainController {
 
     @Autowired
     private TestRepo testRepo;
+
+    @Autowired
+    private TaskRepo taskRepo;
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -37,6 +42,17 @@ public class MainController {
     @GetMapping("/tests/{testId}")
     public String getTests(@PathVariable("testId") Integer testId, Map<String, Object> model) {
         Test test = testRepo.findByTestId(testId).orElse(null);
+
+        Iterable<Test> tests = testRepo.findAll();
+        model.put("tests", tests);
+        model.put("test", test);
+
+        return "main";
+    }
+
+    @GetMapping("/tasks/{taskId}")
+    public String getTestsTask(@PathVariable("taskId") Integer taskId, Map<String, Object> model) {
+        Task task = taskRepo.findByTaskId(taskId).orElse(null);
 
         Iterable<Test> tests = testRepo.findAll();
         model.put("tests", tests);

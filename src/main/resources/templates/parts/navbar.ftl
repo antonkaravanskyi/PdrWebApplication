@@ -10,7 +10,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <#if name?has_content>
         <ul class="navbar-nav mr-auto">
-            <div></div>
+            <li class="nav-item">
+                <a class="nav-link" href="/tests">Тести</a>
+            </li>
+            <div>
+                <#if isAdmin>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user">Редактор користувачів</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user">Редактор тестів</a>
+                    </li>
+                </ul>
+                </#if>
+            </div>
         </ul>
             <div class="navbar-text mr-3">${name}</div>
             <@l.logout />
@@ -24,6 +38,5 @@
                 </li>
             </ul>
         </#if>
-
     </div>
 </nav>

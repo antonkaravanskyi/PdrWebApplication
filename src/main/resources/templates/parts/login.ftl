@@ -1,15 +1,15 @@
 <#macro login path isRegisterForm>
     <form action="${path}" method="post">
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Ім'я :</label>
-            <div class="col-sm-6">
-                <input type="text" name="username" class="form-control" placeholder="Введіть ім'я" />
+            <label class="col-sm-1 col-form-label">Ім'я :</label>
+            <div class="col-sm-3">
+                <input type="text" name="username" class="form-control" placeholder="Введіть ім'я" required/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Пароль :</label>
-            <div class="col-sm-6">
-                <input type="password" name="password" class="form-control" placeholder="Введіть пароль" />
+            <label class="col-sm-1 col-form-label">Пароль :</label>
+            <div class="col-sm-3">
+                <input type="password" name="password" class="form-control" placeholder="Введіть пароль" required/>
             </div>
         </div>
         <input type="hidden" name="_csrf" value="${_csrf.token}" />
