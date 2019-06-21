@@ -19,9 +19,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/user">Редактор користувачів</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user">Редактор тестів</a>
-                    </li>
                 </ul>
                 </#if>
             </div>

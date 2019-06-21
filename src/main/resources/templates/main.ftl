@@ -6,7 +6,7 @@
             <label for="exampleFormControlSelect1">Варіанти тестів</label>
             <div class="form-group ">
                 <select class="form-control" id="testId">
-                    <option selected>Білет №...</option>
+                    <option selected>Виберіть білет</option>
                     <#list tests as test>
                         <option value="${test.testId}">
                             ${test.testName}
