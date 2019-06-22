@@ -19,7 +19,7 @@
     </form>
 
     <#if test?has_content>
-        <form>
+        <form action="/answers/check" method="post">
             <div>
                 <ul class="list-group">
                     <#list test.tasks as task>
@@ -38,7 +38,7 @@
                                 <div class="col-sm-10">
                                     <#list task.answers as answer>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" id="${task.taskId}" name="${task.taskId}">
+                                            <input class="form-check-input" type="radio" id="${task.taskId}" name="${task.taskId}" value="${answer.answerName}">
                                             <label for="${task.taskId}">
                                                 ${answer.answerName}
                                             </label>
@@ -49,7 +49,8 @@
                         </li>
                     </#list>
                 </ul>
-            </div
+                <button type="submit">Відправити</button>
+            </div>
         </form>
     </#if>
 </@c.page>
